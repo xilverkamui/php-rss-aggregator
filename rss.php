@@ -69,25 +69,24 @@ function fetchSourceItems(
 
     $feed = new SimplePie();
 
-    $feed->set_feed_url(
-        $source['url']
-    );
-
+    $feed->set_feed_url($source['url']);
+    $feed->enable_cache(true);
     $feed->set_cache_location( __DIR__ . '/cache/rss' );
+    $feed->set_cache_duration(($channel['cache_minutes'] ?? 60) * 60);
 
-    $feed->set_cache_duration(
-        ($channel['cache_minutes'] ?? 60) * 60
-    );
-
-    $feed->set_timeout(20);
-
+    $feed->set_timeout(30);
+    $feed->force_feed(true);
     $success = $feed->init();
 
     if (!$success) {
 
         logMessage(
             'WARNING',
-            'Failed: ' . $source['url']
+            sprintf(
+                "Failed: %s\nReason: %s",
+                $source['url'],
+                $feed->error()
+            )
         );
 
         return [];
