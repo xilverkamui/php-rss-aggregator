@@ -2,12 +2,11 @@
 
 date_default_timezone_set('Asia/Jakarta');
 
-require_once('rss.php');
+require_once(__DIR__ . '/rss.php');
 
 
 $config = json_decode(
-    file_get_contents('config.json'),
-    true
+    file_get_contents(__DIR__ . '/config.json'), true
 );
 
 if ($config === null) {
@@ -126,7 +125,7 @@ foreach (
             exit;
         }
 
-        $outputFile = 'data/' . $channel['output_file'];
+        $outputFile =  __DIR__ . 'data/' . $channel['output_file'];
 
 
         file_put_contents($outputFile, $rss);

@@ -1,7 +1,7 @@
 <?php
 
-require_once('../vendor/autoload.php');
-require_once('helpers.php');
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/helpers.php');
 
 
 function generateRss(array $channel): string
