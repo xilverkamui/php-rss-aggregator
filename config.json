@@ -1,0 +1,46 @@
+{
+  "title": "RSS Config",
+  "debug": false,
+  "channels": {
+    "infosurabayaterkini": {
+      "title": "Info Surabaya Terkini",
+      "description": "Update berita tentang Surabaya",
+      "feed_link": "https://xilverkamui.github.io/php-rss-aggregator/data/infosurabayaterkini.xml",
+      "output_file": "infosurabayaterkini.xml",
+      "enabled": true,
+      "language": "id-ID",
+      "ttl": 60,
+      "cache_minutes": 60,
+      "sort_order": "published_desc", 
+      "max_items": 100, 
+      "allowed_tags": "<p><img><strong><br>",
+      "replace_rules": {
+        "(Feed generated with FetchRSS)": ""
+      },
+      "sources": [
+        {
+          "url": "https://www.suarasurabaya.net/feed/",
+          "enabled": true,
+          "max_items": 50
+        },
+        {
+          "url": "https://app.xkamui.eu.org/rss/prayer-times-surabaya.php", 
+          "enabled": true,
+          "display": {
+            "title": true,
+            "description": true,
+            "content": true
+          }
+        },
+        {
+            "url":"https://rss.tempo.co/nasional",
+            "enabled":true
+        },
+        {
+            "url":"https://www.cnbcindonesia.com/news/rss",
+            "enabled":true
+        }
+      ]
+    }
+  }
+}

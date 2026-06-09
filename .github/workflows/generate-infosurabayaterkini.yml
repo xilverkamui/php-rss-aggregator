@@ -1,0 +1,49 @@
+name: Generate InfoSurabayaTerkini
+
+on:
+workflow_dispatch:
+
+schedule:
+- cron: '0 * * * *'
+
+jobs:
+
+generate:
+
+runs-on: ubuntu-24.04
+
+permissions:
+  contents: write
+
+steps:
+
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
+  - name: Setup PHP
+    uses: shivammathur/setup-php@v2
+    with:
+      php-version: '8.3'
+
+  - name: Install dependencies
+    run: composer install --no-interaction --prefer-dist
+
+  - name: Create cache directory
+    run: mkdir -p cache/rss
+
+  - name: Generate InfoSurabayaTerkini RSS
+    run: php generate.php infosurabayaterkini
+
+  - name: Commit generated XML
+    run: |
+      git config user.name "github-actions"
+      git config user.email "github-actions@github.com"
+
+      git add data/
+
+      if git diff --cached --quiet; then
+        echo "No changes"
+      else
+        git commit -m "Update infosurabayaterkini.xml"
+        git push
+      fi
