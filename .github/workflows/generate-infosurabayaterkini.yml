@@ -1,49 +1,46 @@
 name: Generate InfoSurabayaTerkini
 
 on:
-workflow_dispatch:
+  workflow_dispatch:
 
-schedule:
-- cron: '0 * * * *'
+  schedule:
+    - cron: '0 * * * *'
 
 jobs:
+  generate:
+    runs-on: ubuntu-24.04
 
-generate:
+    permissions:
+      contents: write
 
-runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-permissions:
-  contents: write
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
-steps:
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
 
-  - name: Checkout repository
-    uses: actions/checkout@v4
+      - name: Create cache directory
+        run: mkdir -p cache/rss
 
-  - name: Setup PHP
-    uses: shivammathur/setup-php@v2
-    with:
-      php-version: '8.3'
+      - name: Generate InfoSurabayaTerkini RSS
+        run: php generate.php infosurabayaterkini
 
-  - name: Install dependencies
-    run: composer install --no-interaction --prefer-dist
+      - name: Commit generated XML
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
 
-  - name: Create cache directory
-    run: mkdir -p cache/rss
+          git add data/
 
-  - name: Generate InfoSurabayaTerkini RSS
-    run: php generate.php infosurabayaterkini
-
-  - name: Commit generated XML
-    run: |
-      git config user.name "github-actions"
-      git config user.email "github-actions@github.com"
-
-      git add data/
-
-      if git diff --cached --quiet; then
-        echo "No changes"
-      else
-        git commit -m "Update infosurabayaterkini.xml"
-        git push
-      fi
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update infosurabayaterkini.xml"
+            git push
+          fi
