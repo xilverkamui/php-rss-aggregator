@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title>Info Surabaya Terkini</title>
+        <description>Update berita tentang Surabaya</description>
+        <link>https://xilverkamui.github.io/php-rss-aggregator/data/infosurabayaterkini.xml</link>
+        <language>id-ID</language>
+        <lastBuildDate>Tue, 09 Jun 2026 21:31:34 +0700</lastBuildDate>
+        <atom:link href="https://xilverkamui.github.io/php-rss-aggregator/data/infosurabayaterkini.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>Jadwal Waktu Sholat Kota Surabaya,Indonesia</title>
+            <link>https://api.aladhan.com/v1/timingsByAddress/09-06-2026</link>
+            <guid>https://api.aladhan.com/v1/timingsByAddress/09-06-2026</guid>
+            <pubDate>Tue, 09 Jun 2026 21:31:34 +0700</pubDate>
+            <dc:creator>Xilver Kamui</dc:creator>
+            <category>app.xkamui.eu.org</category>
+            <description>&lt;strong&gt;Tuesday, 09 Jun 2026&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;Al Thalaata, 23 Dhū al-Ḥijjah 1447&lt;/strong&gt;&lt;br&gt;
+Subuh    : 04:14&lt;br&gt;
+Dhuhur  : 11:28&lt;br&gt;
+Ashar      : 14:50&lt;br&gt;
+Maghrib : 17:20&lt;br&gt;
+Isya         : 18:34&lt;br&gt;&lt;br&gt;
+
+Ayo sholat berjamaah !</description>
+            <content:encoded><![CDATA[<strong>Tuesday, 09 Jun 2026</strong><br>
+<strong>Al Thalaata, 23 Dhū al-Ḥijjah 1447</strong><br>
+Subuh    : 04:14<br>
+Dhuhur  : 11:28<br>
+Ashar      : 14:50<br>
+Maghrib : 17:20<br>
+Isya         : 18:34<br><br>
+
+Ayo sholat berjamaah !]]></content:encoded>
+        </item>
+    </channel>
+</rss>
+
