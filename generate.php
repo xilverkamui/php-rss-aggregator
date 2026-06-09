@@ -125,7 +125,7 @@ foreach (
             exit;
         }
 
-        $outputFile =  __DIR__ . 'data/' . $channel['output_file'];
+        $outputFile =  __DIR__ . '/data/' . $channel['output_file'];
 
 
         file_put_contents($outputFile, $rss);

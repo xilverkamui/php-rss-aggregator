@@ -73,9 +73,7 @@ function fetchSourceItems(
         $source['url']
     );
 
-    $feed->set_cache_location(
-        '../cache/rss'
-    );
+    $feed->set_cache_location( __DIR__ . '/cache/rss' );
 
     $feed->set_cache_duration(
         ($channel['cache_minutes'] ?? 60) * 60
