@@ -68,6 +68,7 @@ function fetchSourceItems(
     );
 
     $feed = new SimplePie();
+    $feed->set_useragent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36');
 
     $feed->set_feed_url($source['url']);
     $feed->enable_cache(true);
